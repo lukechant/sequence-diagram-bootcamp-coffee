@@ -1,0 +1,47 @@
+erDiagram
+          CUSTOMER ||--o{ ORDER : places
+ORDERPRODUCT ||--|{ PRODUCT: holds
+PRODUCT ||--|| SIZE : has
+PRODUCT ||--|| CATEGORIES : has
+ORDER ||--|| TRANSACTION: emits
+ORDER ||--o{ ORDERPRODUCT : holds
+CUSTOMER {
+    string name
+    string custID
+    string email
+    string cardDetails
+    string protectedPassword
+    list previousOrders
+    int totalLoyaltyPoints
+    }
+ORDERPRODUCT {
+    string productID
+    string orderID
+    }
+ORDER {
+    string orderID
+    string transactionID
+    DateTime date
+    int totalPrice
+    bool paid
+}
+PRODUCT {
+    string name
+    string categoryID
+    string productID
+    int price
+    string sizeID
+}
+CATEGORIES {
+    string name
+    string categoryID
+}
+SIZE {
+    string name
+    string sizeID
+}
+TRANSACTION {
+    string transactionID
+    DateTime date
+    bool approved
+    }
